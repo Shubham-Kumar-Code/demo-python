@@ -7,10 +7,20 @@ on:
       - completed # Triggers when the referenced workflow completes (successfully or not)
       
 jobs:
-  CD:
+  CD-dev:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }} # Only run if the preceding workflow concluded successfully
     environment: dev
+    steps:
+      - name: Download artifacts
+        run: echo "Download artifacts"
+
+      - name: Deploy to Server
+        run: echo "Deploying application to server"
+  CD-prod:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }} # Only run if the preceding workflow concluded successfully
+    environment: prod
     steps:
       - name: Download artifacts
         run: echo "Download artifacts"
