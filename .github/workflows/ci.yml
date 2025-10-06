@@ -19,18 +19,18 @@ jobs:
       - name: Run Hello World Python
         run: python hello.py
       
-      - name: Build Docker Image
-        run: |
-          docker build -t hello-python-app . 
-          docker images
+      # - name: Build Docker Image
+      #   run: |
+      #     docker build -t hello-python-app . 
+      #     docker images
           
-      - name: Run Docker Container
-        run: docker run hello-python-app
+      # - name: Run Docker Container
+      #   run: docker run hello-python-app
           
 
-      - name: Run tests
-        run: echo "running application tests"
+      # - name: Run tests
+      #   run: echo "running application tests"
 
-      - name: Sonar scanning
-        run: echo "running sonar scans for SAST"
+      # - name: Sonar scanning
+      #   run: echo "running sonar scans for SAST"
         
