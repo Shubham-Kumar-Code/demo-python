@@ -1,0 +1,15 @@
+name: CI pipeline
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run python script
+        run: python hello.py
