@@ -11,5 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: build application
+        run: echo "Building application...write logic here"
+
+      - name: Run tests
+        run: echo "running application tests"
+
+      - name: Sonar scanning
+        run: echo "running sonar scans for SAST"
+        
       - name: Run python script
         run: python hello.py
