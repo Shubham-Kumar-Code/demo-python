@@ -11,8 +11,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: build application
-        run: echo "Building application...write logic here"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: '3.9'
+
+      - name: Run Hello World Python
+        run: python hello.py
+      
+      - name: Build Docker Image
+        run: |
+          docker build -t hello-python-app . 
+          docker images
+          
+      - name: Run Docker Container
+        run: docker run hello-python-app
+          
 
       - name: Run tests
         run: echo "running application tests"
@@ -20,5 +34,3 @@ jobs:
       - name: Sonar scanning
         run: echo "running sonar scans for SAST"
         
-      - name: Run python script
-        run: python hello.py
